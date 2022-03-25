@@ -1,0 +1,1 @@
+<?php// QR generator for BLUF tiny POS// the file below is the single file merged version of http://phpqrcode.sourceforge.net/require_once('lib-php/phpqrcode.php') ;if ( !isset($_GET['uri']) ) {	exit ;}header('Content-type: image/png') ;QRcode::png($_GET['uri'],false,8,8) ;?>
