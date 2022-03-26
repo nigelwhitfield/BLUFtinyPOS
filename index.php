@@ -102,6 +102,7 @@ require_once('config.php') ;
 			
 			if (items.length > 0 ) {
 				// yay - let's make a checkout session
+				$('#total').text('Processing ...') ;
 				$.post('tpcheckout.php', { items : items }, function(result) {
 					if (result.status == 'ok') {
 						var qurl = 'qrcode.php?uri=' + result.url ;
@@ -110,6 +111,7 @@ require_once('config.php') ;
 						$('#tpmain').hide() ;
 						$('#tpqr').show() ;					
 					} else {
+						calc_total() ;
 						alert('Sorry, there was an error') ;
 					}
 				}, 'json') ;
